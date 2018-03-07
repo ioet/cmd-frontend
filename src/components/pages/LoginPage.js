@@ -5,6 +5,8 @@ import { Segment, Label, Container } from 'semantic-ui-react';
 import { connect } from 'react-redux'
 import { login } from '../../actions/auth'
 
+import './LoginPage.css'
+
 class LoginPage extends React.Component {
 
     submit = data => {
@@ -14,7 +16,7 @@ class LoginPage extends React.Component {
     render() {
         return (
             <Container>
-                <Segment raised>
+                <Segment id="header" raised>
                     <Label color='blue' size="huge" ribbon>Login Restaurank</Label>
                 </Segment>
                 <LoginForm submit={this.submit}/>
