@@ -1,19 +1,28 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import { Form, Button } from 'semantic-ui-react';
+import './LoginForm.css'
 
 class LoginForm extends React.Component {
 
-  onChange = (data) => {
-    console.log(data.target.name)
+  state = {
+    data: {
+    	email: '',
+    	password: ''
+    }
   }
 
+	onChange = e => this.setState({
+		data: { ...this.state.data, [e.target.name]: e.target.value }
+	})
+
   onSubmit = () => {
-    console.log("Botón")
-  }
+    this.props.submit(this.state.data)
+	}
 
   render() {
     return (
-        <Form onSubmit={this.onSubmit}> 
+        <Form onSubmit={this.onSubmit} > 
             <Form.Input 
                 name="email"
                 placeholder='Enter Email'
@@ -24,10 +33,14 @@ class LoginForm extends React.Component {
               placeholder='Enter Password'
               onChange={this.onChange}
             />
-            <Button attached="bottom" type='submit' color="blue" size="large">Login</Button>
+            <Button id="buttonLogin" color="blue" size="large">Login</Button>
         </Form>
     )
   }
 };
+
+LoginForm.propTypes = {
+	submit: PropTypes.func.isRequired
+}
 
 export default LoginForm;
