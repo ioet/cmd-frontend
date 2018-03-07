@@ -13,18 +13,18 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-        <Form onSubmit={this.onSubmit}> 
-            <Form.Input 
+        <Form onSubmit={this.onSubmit}>
+            <Form.Input
                 name="email"
                 placeholder='Enter Email'
                 onChange={this.onChange}
             />
-            <Form.Input 
+            <Form.Input
               name="password"
               placeholder='Enter Password'
               onChange={this.onChange}
             />
-            <Button attached="bottom" type='submit' color="blue" size="large">Login</Button>
+            <Button type='submit' color="blue" size="large">Login</Button>
         </Form>
     )
   }
