@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
                 placeholder='Enter Email'
                 onChange={this.onChange}
             />
-            <Form.Input 
+            <Form.Input
               name="password"
               placeholder='Enter Password'
               onChange={this.onChange}
