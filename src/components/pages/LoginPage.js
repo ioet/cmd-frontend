@@ -9,9 +9,7 @@ import './LoginPage.css'
 
 class LoginPage extends React.Component {
 
-    submit = data => {
-        this.props.login(data)
-    }
+    submit = data => this.props.login(data)
 
     render() {
         return (
@@ -24,5 +22,6 @@ class LoginPage extends React.Component {
         )
     }
 };
+
 
 export default connect(null, { login })(LoginPage);
