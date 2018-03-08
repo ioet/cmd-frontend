@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
     if(Object.keys(errors).length === 0){
       console.log('sin errores')
       this.props
-        .submit(this.state.data)  
+        .submit(this.state.data)
         .catch(err => this.setState( { errors: err.response.data.errors } ))
     }  
 	}
