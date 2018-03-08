@@ -9,25 +9,25 @@ import './LoginPage.css'
 
 class LoginPage extends React.Component {
 
-    user = {
-        connected: false
-    }
-
-    submit = data => this.props.login(data).then(() => {
-        this.user.connected = true
-        this.props.history.push("/")
-    });
+    submit = data => this.props.login(data)
+        .then(() => {
+            this.props.history.push("/")
+        })
 
     render() {
+
+        const { user } = this.props;
+
         return (
             <Container>
                 <Segment id="header" raised>
                     <Label color='blue' size="huge" ribbon>Login Restaurank</Label>
                 </Segment>
-                { this.user.connected && (
+                { Object.keys(user).length !== 0 && (
                     <Message>
                         <Message.Header>User connected successfully</Message.Header>
-                    </Message>
+                        <p>{user.toString()}</p>
+                    </Message>    
                 )}
                 <LoginForm submit={this.submit}/>
             </Container>
@@ -42,4 +42,10 @@ LoginPage.propTypes = {
 	login: PropTypes.func.isRequired
 }
 
-export default connect(null, { login })(LoginPage);
+function mapStateToProps(state) {
+    return {
+      user: state.user
+    };
+}
+
+export default connect(mapStateToProps, { login })(LoginPage);

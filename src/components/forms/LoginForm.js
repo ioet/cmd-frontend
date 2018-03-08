@@ -22,9 +22,7 @@ class LoginForm extends React.Component {
   onSubmit = () => {
     const errors = this.validate(this.state.data);
     this.setState({errors});
-    console.log('comprobar')
     if(Object.keys(errors).length === 0){
-      console.log('sin errores')
       this.props
         .submit(this.state.data)
         .catch(err => this.setState( { errors: err.response.data.errors } ))

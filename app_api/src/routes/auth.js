@@ -12,13 +12,13 @@ router.post('/', (req, res) => {
     }, {raw:true, allow_filtering: true} , (err, user) => {
         if(err) {
             console.log(err)
-            res.status(400).json({errors: { global: "Message from server: Error en conexión con la base." } })
+            res.status(400).json({errors: { global: "Message from server: Error from database connection." } })
             return;
         }
         if(user.length === 0){
-            res.status(400).json({errors: { global: "Message from server: No hay registros." } })
+            res.status(400).json({errors: { global: "Message from server: No records." } })
         }else{
-            res.json({ user: "Usuario logueado: " + email });
+            res.json({ user: "Message from server: found user : " + email });
         }
     });
 
