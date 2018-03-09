@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from '../forms/LoginForm'
-import { Segment, Label, Container, Message } from 'semantic-ui-react';
+import { Segment, Label, Container } from 'semantic-ui-react';
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { login } from '../../actions/auth'
@@ -11,7 +11,7 @@ class LoginPage extends React.Component {
 
     submit = data => this.props.login(data)
         .then(() => {
-            this.props.history.push("/")
+            this.props.history.push("/restaurants-list")
         })
 
     render() {
@@ -23,12 +23,6 @@ class LoginPage extends React.Component {
                 <Segment id="header" raised>
                     <Label color='blue' size="huge" ribbon>Login Restaurank</Label>
                 </Segment>
-                { Object.keys(user).length !== 0 && (
-                    <Message>
-                        <Message.Header>User connected successfully</Message.Header>
-                        <p>{user.toString()}</p>
-                    </Message>    
-                )}
                 <LoginForm submit={this.submit}/>
             </Container>
         )
