@@ -1,5 +1,6 @@
 import React from 'react';
 import store from "../../store"
+import ErrorAuth from "../pages/ErrorAuth"
 
 const Authorization = (allowedRoles) => (WrappedComponent) => {
   return class WithAuthorization extends React.Component {
@@ -11,7 +12,7 @@ const Authorization = (allowedRoles) => (WrappedComponent) => {
       if (allowedRoles.includes(role)) {
         return <WrappedComponent {...this.props} />
       } else {
-        return <h1>No page for you!</h1>
+        return <ErrorAuth />
       }
     }
   }

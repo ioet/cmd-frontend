@@ -1,20 +1,29 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
 import LoginPage from './components/pages/LoginPage'
-import MainPage from './components/pages/MainPage'
+import ListRestaurants from './components/pages/ListRestaurants'
 import ManageRestaurants from './components/pages/ManageRestaurants'
-import Error from './components/pages/ErrorAuth'
 import Authorization from "./components/auth/auth"
 
-const Manager = Authorization(['super_admin'])
+const admin_restaurant_manage = Authorization(['super_admin'])
+const user_restaurant_list = Authorization(['registered_user'])
 
 const App = () => (
   
   <div>
-    <Route path="/" exact component={LoginPage}/>
-    <Route path="/restaurants-list" exact component={MainPage}/>
-    <Route path="/super-admin/manage-restaurants" exact component={Manager(ManageRestaurants)}/>
-    <Route path="/no_autorizado" exact component={Error}/>
+    <Route path="/" exact component={ListRestaurants}/>
+    <Route path="/login" exact component={LoginPage}/>
+    <Route path="/recovery" exact component={null}/>
+    <Route path="/restaurant/list" exact component={null}/>    
+    <Route path="/restaurant/[id]" exact component={null}/>
+    
+    <Route path="/admin/restaurant/edit/[id]" exact component={null}/>
+    <Route path="/admin/restaurant/manage/[id]" exact component={null}/>
+
+    <Route path="/admin/restaurant/manage" exact component={admin_restaurant_manage(ManageRestaurants)}/>
+
+    <Route path="/user/restaurant/list" exact component={user_restaurant_list(ListRestaurants)}/>
+    <Route path="/user/restaurant/edit/[id]" exact component={null}/>
   </div>
 
 );
