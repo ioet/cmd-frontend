@@ -8,9 +8,9 @@ var models = require('express-cassandra');
 models.setDirectory( __dirname + '/models').bind(
     {
         clientOptions: {
-            contactPoints: ['127.0.0.1'],
+            contactPoints: [process.env.DB_PORT],
             protocolOptions: { port: 9042 },
-            keyspace: 'restaurank',
+            keyspace: process.env.DB_NAME,
             queryOptions: {consistency: models.consistencies.one}
         },
         ormOptions: {
@@ -30,4 +30,4 @@ app.use(bodyParser.json());
 // routes
 app.use("/api/auth", auth);
 
-app.listen(8080, () => console.log("Running on localhost: 8080"))
+app.listen(process.env.PORT, () => console.log("Running on localhost: " + process.env.PORT))
