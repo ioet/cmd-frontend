@@ -6,15 +6,15 @@ module.exports = {
         res.status(400).json({errors: { global: "Incorrect email." } })
     },
     errorIncorrectPassword: (res) => {
-        res.status(400).json({errors: { global: "Message from server: Incorrect password." } })
+        res.status(400).json({errors: { global: "Incorrect password." } })
     },
     errorEmailIsRegistered: (res) => {
-        res.status(400).json({errors: { global: "Message from server: The email is already registered." } })
+        res.status(400).json({errors: { global: "The email is already registered." } })
     },
     errorEncriptingPassword: (res) => {
-        res.status(400).json({errors: { global: "Message from server: Error encrypting password." } })
+        res.status(400).json({errors: { global: "Error encrypting password." } })
     },   
     errorSavingUser: (res) => {
-        res.status(400).json({errors: { global: "Message from server: Error saving new user." } })
+        res.status(400).json({errors: { global: "Error saving new user." } })
     }   
 }

@@ -23,16 +23,18 @@ router.post('/login', (req, res) => {
         // Compare encrypted password
         bcrypt.compare(password, user.password, (error, response) => {
             if(response){
-                res.json({ user: "Message from server: Login with user : " + email });        
+                res.json(
+                    { user: 
+                        { role: user.role }
+                    }
+                );        
                 return    
             }else{
                 errors.errorIncorrectPassword(res)
                 return    
             }
-        })
-        
+        }) 
     });
-
 })
 
 router.post('/register', (req, res) => {
@@ -45,29 +47,30 @@ router.post('/register', (req, res) => {
             errors.errorDataBaseConnection(res)
             return
         }
-        if(!user){
-            error.errorEmailIsRegistered(res)
+        if(user){
+            errors.errorEmailIsRegistered(res)
             return 
         }
         // Hash the password
         bcrypt.hash(password, 10, (err, encryptedPassword) => {
             if(err) {
-                error.errorEncriptingPassword(res)
+                errors.errorEncriptingPassword(res)
                 return
             }
             // Add to database
             // Create a model instance 
             var newUser = new models.instance.Users({
                 email: email,
-                password: encryptedPassword
+                password: encryptedPassword,
+                role: 'registered_user'
             });
             // Save new user
             newUser.save(function(err){
                 if(err) {
-                    error.errorSavingUser(res)
+                    errors.errorSavingUser(res)
                     return;
                 }
-                res.json({ user: "Message from server: Registered user" });        
+                res.json({ user: "Registered user" });        
             });    
         });
 

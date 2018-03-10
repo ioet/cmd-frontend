@@ -11,13 +11,11 @@ class LoginPage extends React.Component {
 
     submit = data => this.props.login(data)
         .then(() => {
-            this.props.history.push("/restaurants-list")
+            //this.props.history.push("/restaurants-list")
+            this.props.history.push("/super-admin/manage-restaurants") 
         })
 
     render() {
-
-        const { user } = this.props;
-
         return (
             <Container>
                 <Segment id="header" raised>
@@ -36,10 +34,4 @@ LoginPage.propTypes = {
 	login: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state) {
-    return {
-      user: state.user
-    };
-}
-
-export default connect(mapStateToProps, { login })(LoginPage);
+export default connect(null, { login })(LoginPage);
