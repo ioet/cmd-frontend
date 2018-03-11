@@ -16,7 +16,7 @@ class PublicListRestaurants extends React.Component {
                     color="blue"
                     size="large"
                     onClick={this.redirect}>
-                    Login
+                    LOGIN
                 </Button>
             </Container>
         )

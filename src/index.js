@@ -7,6 +7,15 @@ import 'semantic-ui-css/semantic.min.css';
 
 import { Provider } from 'react-redux';
 import store from "./store";
+import { userLoggedIn } from './actions/auth';
+
+if(localStorage.tokenAuth){
+    const user = { 
+        role: localStorage.role,
+        token: localStorage.token
+    }
+    store.dispatch(userLoggedIn(user))
+}
 
 ReactDOM.render(
     <BrowserRouter>

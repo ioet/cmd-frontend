@@ -5,5 +5,19 @@ export const userLoggedIn = user => ({
     user
 })
 
+export const userLoggedOut = () => ({
+    type: 'USER_LOGGED_OUT'
+})
+
 export const login = credentials => dispatch => 
-    api.user.login(credentials).then(user => dispatch(userLoggedIn(user)))
+    api.user.login(credentials).then(user => {
+        localStorage.token = user.token 
+        localStorage.role = user.role
+        dispatch(userLoggedIn(user))
+    })
+
+export const logout = () => dispatch => {
+    localStorage.removeItem('token')
+    localStorage.removeItem('role')
+    dispatch(userLoggedOut())
+}

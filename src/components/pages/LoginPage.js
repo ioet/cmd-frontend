@@ -11,7 +11,6 @@ class LoginPage extends React.Component {
 
     submit = data => this.props.login(data)
         .then(() => {
-            console.log(this.props.user.role)
             switch(this.props.user.role){
                 case "super_admin":
                     this.props.history.push("/admin/restaurant/manage") 
