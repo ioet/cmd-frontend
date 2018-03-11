@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import store from "./store";
 import { userLoggedIn } from './actions/auth';
 
-if(localStorage.tokenAuth){
+if(localStorage.token){
     const user = { 
         role: localStorage.role,
         token: localStorage.token
