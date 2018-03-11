@@ -3,7 +3,7 @@ import { Container, Label } from 'semantic-ui-react';
 import { connect } from 'react-redux'
 import { login } from '../../actions/auth'
 
-class ListRestaurants extends React.Component {
+class UserListRestaurants extends React.Component {
 
     render() {
 
@@ -24,4 +24,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, { login })(ListRestaurants);
+export default connect(mapStateToProps, { login })(UserListRestaurants);

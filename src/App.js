@@ -1,7 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
 import LoginPage from './components/pages/LoginPage'
-import ListRestaurants from './components/pages/ListRestaurants'
+import UserListRestaurants from './components/pages/UserListRestaurants'
+import PublicListRestaurants from './components/pages/PublicListRestaurants'
 import ManageRestaurants from './components/pages/ManageRestaurants'
 import Authorization from "./components/auth/auth"
 
@@ -11,7 +12,7 @@ const user_restaurant_list = Authorization(['registered_user'])
 const App = () => (
   
   <div>
-    <Route path="/" exact component={ListRestaurants}/>
+    <Route path="/" exact component={PublicListRestaurants}/>
     <Route path="/login" exact component={LoginPage}/>
     <Route path="/recovery" exact component={null}/>
     <Route path="/restaurant/list" exact component={null}/>    
@@ -22,7 +23,7 @@ const App = () => (
 
     <Route path="/admin/restaurant/manage" exact component={admin_restaurant_manage(ManageRestaurants)}/>
 
-    <Route path="/user/restaurant/list" exact component={user_restaurant_list(ListRestaurants)}/>
+    <Route path="/user/restaurant/list" exact component={user_restaurant_list(UserListRestaurants)}/>
     <Route path="/user/restaurant/edit/[id]" exact component={null}/>
   </div>
 

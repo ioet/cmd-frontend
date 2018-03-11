@@ -11,7 +11,6 @@ router.post('/login', (req, res) => {
 
     models.instance.Users.findOne({ email: email }, (err, user) => {
         if(err) {
-            console.log(err)
             errors.errorDataBaseConnection(res)
             return
         }
@@ -19,21 +18,11 @@ router.post('/login', (req, res) => {
             errors.errorIncorrectEmail(res)
             return 
         }
-
-        // Compare encrypted password
-        bcrypt.compare(password, user.password, (error, response) => {
-            if(response){
-                res.json(
-                    { user: 
-                        { role: user.role }
-                    }
-                );        
-                return    
-            }else{
-                errors.errorIncorrectPassword(res)
-                return    
-            }
-        }) 
+        if(user.comparePassword(password, user.password)){
+            res.json({ user: user.authJSON(user) });        
+        }else{
+            errors.errorIncorrectPassword(res)
+        } 
     });
 })
 
