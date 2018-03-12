@@ -8,7 +8,7 @@ var models = require('express-cassandra')
 router.post('/login', (req, res) => {
         
     const { email, password } = req.body.credentials
-
+    
     models.instance.Users.findOne({ email: email }, (err, user) => {
         if(err) {
             errors.errorDataBaseConnection(res)

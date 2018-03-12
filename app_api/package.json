@@ -17,6 +17,7 @@
     "express": "^4.16.2",
     "express-cassandra": "^2.2.0",
     "jsonwebtoken": "^8.2.0",
-    "nodemon": "^1.17.1"
+    "nodemon": "^1.17.1",
+    "passport": "^0.4.0"
   }
 }

@@ -9,12 +9,16 @@ import { Provider } from 'react-redux';
 import store from "./store";
 import { userLoggedIn } from './actions/auth';
 
+import setAuthorizationHeader from "./utils/setAuthorizationHeader";
+
 if(localStorage.token){
     const user = { 
         role: localStorage.role,
         token: localStorage.token
     }
+    setAuthorizationHeader(localStorage.token); 
     store.dispatch(userLoggedIn(user))
+    
 }
 
 ReactDOM.render(
