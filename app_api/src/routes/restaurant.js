@@ -1,9 +1,12 @@
 import express from "express"
 
+const passportJWT = require("passport-jwt");
 const router = express.Router()
 
 router.get('/get', (req, res) => {
     
+    //const ExtractJWT = passportJWT.ExtractJwt;
+    /*console.log(ExtractJWT.fromAuthHeader())*/
     const id = req.query.id;
 
     const header = req.headers.authorization;
