@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route } from 'react-router-dom'
-import LoginPage from './components/pages/LoginPage'
+import LoginPage from './components/pages/LoginPage/LoginPage'
 import UserListRestaurants from './components/pages/UserListRestaurants'
-import PublicListRestaurants from './components/pages/PublicListRestaurants'
+import PublicListRestaurants from './components/pages/PublicRestaurantsList/PublicListRestaurants'
 import ManageRestaurants from './components/pages/ManageRestaurants'
 import Authorization from "./components/auth/auth"
 import redirect_login from "./components/redirect/redirect_login"

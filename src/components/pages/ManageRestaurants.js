@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from "prop-types"
 import { Label, Container, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux'
 import { logout } from '../../actions/auth'
@@ -8,7 +7,7 @@ import axios from 'axios'
 
 class ManageRestaurants extends React.Component {
 
-    logout = () => {
+    redirect = () => {
         this.props.logout()
         this.props.history.push("/login")
     }
@@ -27,7 +26,7 @@ class ManageRestaurants extends React.Component {
                 <Button 
                     color="blue"
                     size="large"
-                    onClick={this.logout}>
+                    onClick={this.redirect}>
                     LOGOUT
                 </Button>            
                 <Button 
@@ -40,10 +39,6 @@ class ManageRestaurants extends React.Component {
         )
     }
 };
-
-ManageRestaurants.propTypes = {
-    logout: PropTypes.func.isRequired
-}
 
 function mapStateToProps(state) {
     return {
