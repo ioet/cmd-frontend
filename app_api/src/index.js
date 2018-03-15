@@ -13,12 +13,13 @@ dotenv.config()
 require("./config/passport")
 require("./config/database")
 const app = express();
-const isAuthenticated = passport.authenticate('jwt', { session: false })
+
+const authbyrole = (role) => passport.authenticate(role, { session: false })
 
 // parser
 app.use(bodyParser.json());
 // routes
 app.use("/api/auth", auth);
-app.use("/api/restaurant", isAuthenticated, restaurant)
+app.use("/api/restaurant", authbyrole(process.env.SA_ROLE), restaurant)
 
 app.listen(process.env.APP_PORT, () => console.log("Running on localhost: " + process.env.APP_PORT))

@@ -1,10 +1,9 @@
-import React from 'react';
-import LoginForm from '../forms/LoginForm'
-import { Segment, Label, Container } from 'semantic-ui-react';
-import PropTypes from 'prop-types'
+import React from 'react'
+import LoginForm from '../../forms/LoginForm'
+import { Segment, Label, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { login } from '../../actions/auth'
-import setAuthorizationHeader from "../../utils/setAuthorizationHeader";
+import { login } from '../../../actions/auth'
+import setAuthorizationHeader from "../../../utils/setAuthorizationHeader"
 
 import './LoginPage.css'
 
@@ -39,13 +38,6 @@ class LoginPage extends React.Component {
             </Container>
         )
     }
-};
-
-LoginPage.propTypes = {
-	history: PropTypes.shape({
-		push: PropTypes.func.isRequired
-	}).isRequired,
-	login: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
