@@ -37,19 +37,11 @@ class PublicListRestaurants extends React.Component {
       <Grid centered>
 
         <Grid.Column mobile={12} tablet={9} computer={6}>
+
           <Segment>
             <Grid columns='equal'>
-              <Grid.Column mobile={12} tablet={9} computer={6}>
+              <Grid.Column>
                 <Label color='blue' size="big" ribbon>RESTAURANTS LIST</Label>
-              </Grid.Column>
-              
-              <Grid.Column textAlign="right">
-                <Button 
-                    color="blue"
-                    size="large"
-                    onClick={this.redirect}>
-                    LOGIN
-                </Button>
               </Grid.Column>
             </Grid>
           </Segment> 
@@ -74,6 +66,14 @@ class PublicListRestaurants extends React.Component {
             }
           </List>
           
+          <Grid.Column>
+              <Button 
+              id="btnLogin"
+                onClick={this.redirect}>
+                LOGIN
+            </Button>
+          </Grid.Column>
+
         </Grid.Column>
       
       </Grid>

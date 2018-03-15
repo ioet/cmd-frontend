@@ -20,6 +20,7 @@ const authbyrole = (role) => passport.authenticate(role, { session: false })
 app.use(bodyParser.json());
 // routes
 app.use("/api/auth", auth);
-app.use("/api/restaurant", authbyrole(process.env.SA_ROLE), restaurant)
+//app.use("/api/restaurant", authbyrole(process.env.SA_ROLE), restaurant)
+app.use("/api/restaurant", restaurant)
 
 app.listen(process.env.APP_PORT, () => console.log("Running on localhost: " + process.env.APP_PORT))
