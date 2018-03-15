@@ -2,10 +2,9 @@
 module.exports = {
     fields:{
         id          : "int",
-        nombre      : "text", 
-        ubicacion   : "text",
-        ptj_general : "int",
-        ptj_plato   : "int",
+        name        : "text", 
+        location    : "text",
+        score       : "int"        
     },
     key:["id"]
 }

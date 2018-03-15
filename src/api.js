@@ -7,8 +7,6 @@ export default {
     },
     restaurant_public: {
         getRestaurants: () => 
-            axios.get('/api/public/restaurant/list').then((res) => {
-                console.log(res.data)
-            })
+            axios.get('/api/public/restaurant/list')
     }
 }
