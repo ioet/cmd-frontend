@@ -67,16 +67,15 @@ router.post('/register', (req, res) => {
 })
 
 
-router.get('/restaurant/list', (res) => {
+router.get('/restaurant/list', (req, res) => {
 
-  var query = {
-      //order the query by the ptj_general field in ascendent order
-      $orderby:{ '$asc' :'ptj_general' },
-      //limit the result set to 10 rows (enought data for our mock-up)
-      $limit: 10
+ var query = {
+    dummy: 182 ,
+    //$orderby:{ '$desc' :'ptj_general' }, 
+    $limit: 10
   }
 
-  models.instance.restaurant.find(query, {raw: true}, function(err, restaurant_list){
+    models.instance.Restaurant.find(query, {raw: true, allow_filtering: true}, function(err, restaurant_list){
       //restaurant_list is an array of plain objects satisfying the query conditions above
       if(err) {
           errors.errorDataBaseConnection(res)
@@ -89,6 +88,6 @@ router.get('/restaurant/list', (res) => {
       res.json({ restaurant_list });    //If everything is ok then returns the restaurant_list
   });
 
-}
+})
 
 export default router;

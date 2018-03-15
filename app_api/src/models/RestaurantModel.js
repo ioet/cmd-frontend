@@ -2,7 +2,7 @@
 module.exports = {
     fields:{
         id          : "int",
-        nombre      : "text",
+        nombre      : "text", 
         ubicacion   : "text",
         ptj_general : "int",
         ptj_plato   : "int",
