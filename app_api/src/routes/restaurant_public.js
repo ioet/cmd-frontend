@@ -1,8 +1,8 @@
 import express from "express"
 const router = express.Router()
 
-router.get('/list', (res) => {
-
+router.get('/list', (req, res) => {
+    res.json({ res: "ok" })
     /*var query = {
         //order the query by the ptj_general field in ascendent order
         $orderby:{ '$asc' :'ptj_general' },

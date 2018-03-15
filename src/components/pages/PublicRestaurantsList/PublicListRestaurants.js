@@ -2,9 +2,16 @@ import React from 'react';
 import { Label, Button, List, Grid, Segment, Form } from 'semantic-ui-react';
 import Restaurant from "./Restaurant"
 
+import api from "../../../api"
+
 import './PublicListRestaurants.css'
 
 class PublicListRestaurants extends React.Component {
+
+  constructor() {
+    super()
+    api.restaurant_public.getRestaurants()
+  }
 
   redirect = () => this.props.history.push("/login") 
   
