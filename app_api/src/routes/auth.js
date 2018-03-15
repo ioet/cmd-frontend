@@ -76,7 +76,7 @@ router.get('/restaurant/list', (res) => {
       $limit: 10
   }
 
-  models.instance.Person.find(query, {raw: true}, function(err, restaurant_list){
+  models.instance.restaurant.find(query, {raw: true}, function(err, restaurant_list){
       //restaurant_list is an array of plain objects satisfying the query conditions above
       if(err) {
           errors.errorDataBaseConnection(res)
