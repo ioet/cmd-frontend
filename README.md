@@ -8,7 +8,7 @@
 * Redux: 3.7.2
 
 #### Clone repository:
-* Run `git clone https://github.com/ioet/comidometro`.
+* Run `git clone https://github.com/ioet/comidometro.git`.
 
 #### Run server:
 * Import Cassandra database .
