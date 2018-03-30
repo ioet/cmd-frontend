@@ -31,7 +31,7 @@ class PublicListRestaurants extends React.Component {
           <Segment>
             <Grid columns='equal'>
               <Grid.Column>
-                <Label color='blue' size="big" ribbon>RESTAURANTS LIST</Label>
+                <Label color='blue' size="big" ribbon>RESTAURANTS LIST.</Label>
               </Grid.Column>
             </Grid>
           </Segment> 
