@@ -1,9 +1,8 @@
-#### COMIDOMETRO:
+#### CMD:
 * Workshop to learn about React and Redux.
 
 #### Tested on:
 * Lubuntu: 17.10
-* Node: 8.9.4
 * React: 16.2.0
 * Redux: 3.7.2
 
