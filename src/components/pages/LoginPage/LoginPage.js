@@ -11,20 +11,20 @@ class LoginPage extends React.Component {
 
     submit = data => this.props.login(data).then(() => {
 
-        setAuthorizationHeader(localStorage.token); 
+        setAuthorizationHeader(localStorage.token);
 
         switch(this.props.user.role){
             case "super_admin":
-                this.props.history.push("/admin/restaurant/manage") 
+                this.props.history.push("/admin/restaurant/manage")
                 break;
-            case "admin":            
-                this.props.history.push("/admin/restaurant/edit/[id]") 
+            case "admin":
+                this.props.history.push("/admin/restaurant/edit/[id]")
                 break;
             case "registered_user":
-                this.props.history.push("/user/restaurant/list") 
+                this.props.history.push("/user/restaurant/list")
                 break;
             default:
-                this.props.history.push("/restaurant/list") 
+                this.props.history.push("/restaurant/list")
         }
     })
 

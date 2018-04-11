@@ -9,9 +9,9 @@ export const userLoggedOut = () => ({
     type: 'USER_LOGGED_OUT'
 })
 
-export const login = credentials => dispatch => 
+export const login = credentials => dispatch =>
     api.user.login(credentials).then(user => {
-        localStorage.token = user.token 
+        localStorage.token = user.token
         localStorage.role = user.role
         dispatch(userLoggedIn(user))
     })

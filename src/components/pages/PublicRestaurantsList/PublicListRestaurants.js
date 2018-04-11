@@ -1,8 +1,10 @@
 import React from 'react';
-import { Label, Button, List, Grid, Segment, Form } from 'semantic-ui-react';
 import Restaurant from "./Restaurant"
-
 import api from "../../../api"
+import Button from 'material-ui/Button';
+import List from 'material-ui/List';
+import Input from 'material-ui/Input';
+import Grid from 'material-ui/Grid';
 
 import './PublicListRestaurants.css'
 
@@ -14,59 +16,52 @@ class PublicListRestaurants extends React.Component {
 
   constructor() {
     super()
-    api.restaurant_public.getRestaurants().then(res => {      
+    api.restaurant_public.getRestaurants().then(res => {
       this.setState({ restaurants: res.data.restaurant_list})
     })
   }
 
-  redirect = () => this.props.history.push("/login") 
+  localization = () => {
+    if(localStorage.dir === "right"){
+      localStorage.dir = "left"
+      localStorage.dir_ = "ltr"
+    }else{
+      localStorage.dir = "right"
+      localStorage.dir_ = "rtl"
+    }
+    this.props.history.push("/")
+  }
 
   render() {
-
     return (
-      <Grid centered>
 
-        <Grid.Column mobile={14} tablet={9} computer={6}>
+      <div>
 
-          <Segment>
-            <Grid columns='equal'>
-              <Grid.Column>
-                <Label color='blue' size="big" ribbon>RESTAURANTS LIST</Label>
-              </Grid.Column>
-            </Grid>
-          </Segment> 
+        <Button variant="raised" onClick={this.localization}>
+          Change
+        </Button>
 
-          <Form>
-            <Form.Input 
-              name="search"
-              placeholder="Search restaurant"
-            />
-          </Form>
+        <Grid container wrap="nowrap" spacing={24}>
+          <Grid item xs={4}>
+          </Grid>
+          <Grid item xs={4}>
+            <Input style={{ left: 'none' }} placeholder="Search restaurant" fullWidth={true}/>
 
-          <List selection verticalAlign='middle' size="large" className="restaurant">
-            {
-              this.state.restaurants.map((res, index) => 
-                <Restaurant
-                  key={index} 
-                  name={res.name} 
-                  school={res.location} 
-                  score={res.score}>
-                </Restaurant>
-              )
-            }
-          </List>
-          
-          <Grid.Column>
-              <Button 
-              id="btnLogin"
-                onClick={this.redirect}>
-                LOGIN
-            </Button>
-          </Grid.Column>
-
-        </Grid.Column>
-      
-      </Grid>
+            <List component="nav">
+              {
+                this.state.restaurants.map((res, index) =>
+                  <Restaurant
+                    key={index}
+                    name={res.name}
+                    school={res.location}
+                    score={res.score}>
+                  </Restaurant>
+                )
+              }
+            </List>
+          </Grid>
+        </Grid>
+      </div>
     )
   }
 };

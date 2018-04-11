@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from "prop-types";
 import { Form, Button, Message } from 'semantic-ui-react';
 import Validator from 'validator';
-import InlineError from '../messages/InlineError'
+import InlineError from './messages/InlineError'
 import './LoginForm.css'
 
 class LoginForm extends React.Component {
@@ -26,7 +26,7 @@ class LoginForm extends React.Component {
       this.props
         .submit(this.state.data)
         .catch(err => this.setState( { errors: err.response.data.errors } ))
-    }  
+    }
 	}
 
   validate = (data) => {
@@ -39,7 +39,7 @@ class LoginForm extends React.Component {
   render() {
     const { errors } = this.state;
     return (
-        <Form onSubmit={this.onSubmit} > 
+        <Form onSubmit={this.onSubmit} >
             { errors.global && (
               <Message negative>
                 <Message.Header>Something went wrong</Message.Header>
@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
               </Message>
             )}
             {errors.email && <InlineError text={errors.email}/>}
-            <Form.Input 
+            <Form.Input
               error={!!errors.email}
               name="email"
               placeholder='Enter Email'

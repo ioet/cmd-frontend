@@ -1,21 +1,33 @@
 import React from "react"
-import { List, Image, Icon } from "semantic-ui-react"
+import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
+import DraftsIcon from '@material-ui/icons/Drafts';
 import PropTypes from "prop-types"
+import Grid from 'material-ui/Grid';
 
 class Restaurant extends React.Component {
 
+  componentWillMount(){
+    console.log(this.styles)
+  }
+
   render() {
     return (
-      <List.Item>
-        <Image avatar src='http://icons.iconarchive.com/icons/graphicloads/colorful-long-shadow/256/Restaurant-icon.png'/>
-          <List.Content>
-            <List.Header>{this.props.name}</List.Header>
-            <List.Description>{this.props.school}</List.Description>                  
-          </List.Content>
-          <List.Content floated="right">
-            {this.props.score} <Icon name='star'/>
-          </List.Content>
-      </List.Item>
+
+      <ListItem button>
+        <ListItemIcon>
+          <DraftsIcon />
+        </ListItemIcon>
+
+          <Grid item xs={10}>
+            <ListItemText style = {{ textAlign: localStorage.dir}} primary={this.props.name} secondary={this.props.school}/>
+          </Grid>
+
+          <Grid item xs={2}>
+            <ListItemText style = {{ textAlign: localStorage.dir}} primary={this.props.score}/>
+          </Grid>
+
+      </ListItem>
+
     )
   }
 }
@@ -25,5 +37,6 @@ Restaurant.proptypes = {
   school: PropTypes.string.isRequired,
   score: PropTypes.string.isRequired
 }
+
 
 export default Restaurant;
