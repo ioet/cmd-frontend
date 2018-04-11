@@ -5,6 +5,7 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
+import T from 'i18n-react';
 
 const styles = {
   root: {
@@ -34,6 +35,11 @@ class Home extends React.Component {
             <Button color="inherit" onClick={this.redirect}>Login</Button>
           </Toolbar>
         </AppBar>
+
+        <div>
+          <Button>{T.translate("labels.accept")}</Button>
+          <Button>{T.translate("labels.decline")}</Button>
+        </div>
 
       </div>
     )

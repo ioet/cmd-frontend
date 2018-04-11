@@ -9,8 +9,19 @@ import { Provider } from 'react-redux';
 import store from "./store";
 import { userLoggedIn } from './actions/auth';
 
+// Import the translation module
+import T from 'i18n-react';
+
+// Add the texts for your APP
+T.setTexts({
+    labels: {
+        accept: "Aceptar",
+        decline: "Declinar"
+    }
+});
+
 if(localStorage.token){
-    const user = { 
+    const user = {
         role: localStorage.role,
         token: localStorage.token
     }
