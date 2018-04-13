@@ -9,17 +9,10 @@ import { Provider } from 'react-redux';
 import store from "./store";
 import { userLoggedIn } from './actions/auth';
 
-// Import the translation module
-import T from 'i18n-react';
+// Import localization
+import localization from './localization/languages'
 
-// Add the texts for your APP
-T.setTexts({
-    labels: {
-        accept: "Aceptar",
-        decline: "Declinar"
-    }
-});
-
+// Storage data in cache
 if(localStorage.token){
     const user = {
         role: localStorage.role,
@@ -27,6 +20,10 @@ if(localStorage.token){
     }
     store.dispatch(userLoggedIn(user))
 }
+
+// Use localization
+localization.defineLanguages()
+localization.setLanguage('es')
 
 ReactDOM.render(
     <BrowserRouter>

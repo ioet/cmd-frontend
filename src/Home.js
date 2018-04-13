@@ -5,7 +5,8 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Button from 'material-ui/Button';
-import T from 'i18n-react';
+
+import { Translate } from 'react-localize-redux';
 
 const styles = {
   root: {
@@ -32,15 +33,11 @@ class Home extends React.Component {
             <Typography variant="title" color="inherit" className={this.props.classes.flex}>
               Comidometro
             </Typography>
-            <Button color="inherit" onClick={this.redirect}>Login</Button>
+            <Button color="inherit" onClick={this.redirect}>
+              <Translate id="btn_login"></Translate>
+            </Button>
           </Toolbar>
         </AppBar>
-
-        <div>
-          <Button>{T.translate("labels.accept")}</Button>
-          <Button>{T.translate("labels.decline")}</Button>
-        </div>
-
       </div>
     )
   }
