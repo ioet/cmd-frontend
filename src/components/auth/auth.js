@@ -1,10 +1,10 @@
 import React from 'react';
 import store from "../../store"
-import ErrorAuth from "../pages/ErrorAuth"
+import ErrorAuth from "./ErrorAuth"
 
 const Authorization = (allowedRoles) => (WrappedComponent) => {
   return class WithAuthorization extends React.Component {
-  
+
     render() {
 
       const { role } = store.getState().user

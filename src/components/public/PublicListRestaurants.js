@@ -1,16 +1,17 @@
 import React from 'react';
-import Restaurant from "./Restaurant"
-import api from "../../../api"
+import Restaurant from "../shared/Restaurant"
+import api from "../../api"
 
 // Material-ui
 import Button from 'material-ui/Button';
 import List from 'material-ui/List';
 import Input from 'material-ui/Input';
 import Grid from 'material-ui/Grid';
+import Home from "../../Home"
 
 // Redux
 import { connect } from 'react-redux'
-import store from '../../../store'
+import store from '../../store'
 
 // Localization
 import { Translate, getTranslate, setActiveLanguage} from 'react-localize-redux';
@@ -30,6 +31,7 @@ class PublicListRestaurants extends React.Component {
 
   localization = () => {
     localStorage.dir_ = (localStorage.dir_ === 'ltr') ? 'rtl' : 'ltr'
+    localStorage.dir = (localStorage.dir_ === 'ltr') ? 'left' : 'right'
     this.props.history.push("/")
   }
 
@@ -40,6 +42,8 @@ class PublicListRestaurants extends React.Component {
     return (
 
       <div>
+
+        <Home/>
 
         <Button variant="raised" onClick={ this.localization }>
           <Translate id="btn_change_view"></Translate>

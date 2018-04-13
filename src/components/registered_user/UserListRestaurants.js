@@ -1,17 +1,13 @@
 import React from 'react';
 import { Container, Label, Button } from 'semantic-ui-react';
 import { connect } from 'react-redux'
-import { login } from '../../actions/auth'
-
-import axios from 'axios'
+import { logout } from '../../actions/auth'
 
 class UserListRestaurants extends React.Component {
- 
-    // IMPLEMENTADO SOLO PARA PRUEBAS CON PASSPORT EN SERVIDOR. 
-    logout1 = () => {
-        axios.get('/api/restaurant/get?id=1').then((res) => {
-            console.log(res.data)
-        })
+
+    redirect = () => {
+        this.props.logout()
+        this.props.history.push("/login")
     }
 
     render() {
@@ -19,11 +15,11 @@ class UserListRestaurants extends React.Component {
         return (
             <Container>
                 <Label color='blue' size="huge" ribbon>LIST RESTAURANTS</Label>
-                <Button 
+                <Button
                     color="blue"
                     size="large"
-                    onClick={this.logout1}>
-                    PRUEBA
+                    onClick={this.redirect}>
+                    LOGOUT
                 </Button>
             </Container>
         )
@@ -33,8 +29,9 @@ class UserListRestaurants extends React.Component {
 
 function mapStateToProps(state) {
     return {
+      user: state.user,
       role: state.user.role
     };
 }
 
-export default connect(mapStateToProps, { login })(UserListRestaurants);
+export default connect(mapStateToProps, { logout })(UserListRestaurants);

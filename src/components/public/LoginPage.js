@@ -1,11 +1,9 @@
 import React from 'react'
-import LoginForm from '../../forms/LoginForm'
+import LoginForm from '../forms/LoginForm'
 import { Segment, Label, Container } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { login } from '../../../actions/auth'
-import setAuthorizationHeader from "../../../utils/setAuthorizationHeader"
-
-import './LoginPage.css'
+import { login } from '../../actions/auth'
+import setAuthorizationHeader from "../../utils/setAuthorizationHeader"
 
 class LoginPage extends React.Component {
 
